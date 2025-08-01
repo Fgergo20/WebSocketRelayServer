@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+    application
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.java-websocket:Java-WebSocket:1.5.3'
+}
+
+application {
+    mainClass = 'com.example.WebSocketRelayServer'
+}
