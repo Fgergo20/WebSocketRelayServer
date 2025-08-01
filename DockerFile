@@ -1,0 +1,16 @@
+# Használjuk az Eclipse Temurin JDK 17 image-et
+FROM eclipse-temurin:17
+
+# Dolgozzunk egy mappában
+WORKDIR /app
+
+# Másoljuk be az összes fájlt
+COPY . .
+
+# Fordítás
+RUN mkdir -p out && \
+    javac -cp "Java-WebSocket-1.5.3.jar:slf4j-api-1.7.36.jar:slf4j-simple-1.7.36.jar" \
+    -d out websocket_server/com/example/WebSocketRelayServer.java
+
+# Futás a megfelelő PORT ENV alapján
+CMD ["sh", "-c", "java -cp out:Java-WebSocket-1.5.3.jar:slf4j-api-1.7.36.jar:slf4j-simple-1.7.36.jar com.example.WebSocketRelayServer"]
