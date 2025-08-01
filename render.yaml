@@ -1,9 +1,6 @@
 services:
   - type: web
     name: websocket-relay
-    runtime: docker
-    buildCommand: ./build.sh
-    startCommand: ./start.sh
+    env: docker
     plan: free
-    repo: https://github.com/Fgergo20/WebSocketRelayServer
-    branch: main
+    autoDeploy: true
